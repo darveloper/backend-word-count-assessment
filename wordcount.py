@@ -84,7 +84,8 @@ def print_top(filename):
 
 
 print_top('small.txt')
-
+ 
+# It took me WAY too long lol
 
 # +++your code here+++
 # Define print_words(filename) and print_top(filename) functions.
