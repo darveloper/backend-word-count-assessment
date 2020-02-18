@@ -41,6 +41,51 @@ print_words() and print_top().
 
 import sys
 
+
+def wordDict(filename):
+    wordcount = {}
+    with open(filename, 'r') as file:
+        for line in file:
+            words = line.lower().split()
+            for word in words:
+                if word not in wordcount:
+                    wordcount[word] = 1
+                else:
+                    wordcount[word] += 1
+    return wordcount
+
+
+def print_words(filename):
+    word_count = wordDict(filename)
+    words = sorted(word_count.keys())
+    for word in words:
+        count = word_count[word]
+        print(word, count)
+
+
+print_words('small.txt')
+
+
+def getCount(t):
+    count = t[1]
+    return count
+
+
+print('---------')
+
+
+def print_top(filename):
+    word_count = wordDict(filename)
+    items = sorted(word_count.items(), key=getCount, reverse= True)
+    for item in items[:20]:
+        word = item[0]
+        count = item[1]
+        print(word, count)
+
+
+print_top('small.txt')
+
+
 # +++your code here+++
 # Define print_words(filename) and print_top(filename) functions.
 # You could write a helper utility function that reads a file
@@ -55,7 +100,7 @@ import sys
 
 def main():
     if len(sys.argv) != 3:
-        print 'usage: python wordcount.py {--count | --topcount} file'
+        print('usage: python wordcount.py {--count | --topcount} file')
         sys.exit(1)
 
     option = sys.argv[1]
@@ -65,7 +110,7 @@ def main():
     elif option == '--topcount':
         print_top(filename)
     else:
-        print 'unknown option: ' + option
+        print('unknown option: ') + option
         sys.exit(1)
 
 
