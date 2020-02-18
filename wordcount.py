@@ -63,7 +63,6 @@ def print_words(filename):
         print(word, count)
 
 
-print_words('small.txt')
 
 
 def getCount(t):
@@ -83,7 +82,6 @@ def print_top(filename):
         print(word, count)
 
 
-print_top('small.txt')
  
 # It took me WAY too long lol
 
